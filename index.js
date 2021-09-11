@@ -5,11 +5,12 @@ const url = require("url");
 const { response, request } = require("express");
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 5001;
 app.use(cors());
 dotenv.config();
 
 app.get("/", (request, response) => {
-  response.json({ status: "all good" });
+  response.json({ status: "Port Working !" });
 });
 
 app.get("/cities", async (request, response) => {
@@ -44,6 +45,6 @@ app.get("/cities", async (request, response) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Port listening at PORT 3000");
+app.listen(PORT, () => {
+  console.log(`Port listening at PORT ${PORT}`);
 });
